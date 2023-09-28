@@ -1,0 +1,62 @@
+{
+  "name": "nuttx-helpers",
+  "displayName": "NuttX Helpers",
+  "description": "NuttX Helpesr",
+  "icon": "NuttX_logo.png",
+  "preview": true,
+  "galleryBanner": {
+    "color": "#3c34e3"
+  },
+  "version": "0.0.1",
+  "author": {
+    "email": "matheus@castello.eng.br",
+    "name": "Matheus Castello"
+  },
+  "engines": {
+    "vscode": "^1.82.0"
+  },
+  "categories": [
+    "Linters",
+    "Other"
+  ],
+  "activationEvents": [
+    "onLanguage:c"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "configuration": {
+      "title": "NuttX Helpers",
+      "properties": {
+        "nuttx.checkPatch": {
+          "type": "boolean",
+          "default": false,
+          "description": "Activate the run on checkpatch script on C opened files"
+        },
+        "nuttx.checkPatchPath": {
+          "type": "string",
+          "default": "${workspaceFolder}/tools/checkpatch.sh",
+          "description": "Path to the NuttX checkpatch script"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "lint": "eslint src --ext ts",
+    "pack": "vsce package --target linux-x64"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.82.0",
+    "@types/mocha": "^10.0.1",
+    "@types/node": "16.x",
+    "@typescript-eslint/eslint-plugin": "^6.4.1",
+    "@typescript-eslint/parser": "^6.4.1",
+    "eslint": "^8.47.0",
+    "glob": "^10.3.3",
+    "mocha": "^10.2.0",
+    "typescript": "^5.1.6",
+    "@vscode/test-electron": "^2.3.4"
+  }
+}
