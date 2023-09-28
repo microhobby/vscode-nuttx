@@ -7,6 +7,10 @@
   "galleryBanner": {
     "color": "#3c34e3"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/microhobby/vscode-nuttx"
+  },
   "version": "0.0.1",
   "author": {
     "email": "matheus@castello.eng.br",
