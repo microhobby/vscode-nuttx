@@ -42,7 +42,15 @@
           "description": "Path to the NuttX checkpatch script"
         }
       }
-    }
+    },
+    "commands": [
+      {
+        "command": "nuttx.chooseFromConfigureList",
+        "category": "NuttX",
+        "shortTitle": "Configure List",
+        "title": "List all the NuttX configuration to choose"
+      }
+    ]
   },
   "scripts": {
     "vscode:prepublish": "npm run compile",

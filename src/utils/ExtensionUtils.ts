@@ -2,6 +2,7 @@
 import * as vscode from "vscode";
 import {
     EXT_SETTINGS_PREFIX,
+    NOTIFICATION_PREFIX,
     OUTPUT_CHANNEL_NAME,
     OUT_ERR,
     OUT_WARN,
@@ -57,7 +58,7 @@ export class ExtensionUtils {
     }
 
     static showStatusBarLoading (title: string): void {
-        this.statusBarProgressBar.text = `$(loading~spin) Torizon: ${title}`;
+        this.statusBarProgressBar.text = `$(loading~spin) ${title}`;
         this.statusBarProgressBar.show();
     }
 
@@ -69,21 +70,21 @@ export class ExtensionUtils {
     static hideStatusBarLoading = ExtensionUtils.hideStatusBar;
 
     static showStatusBarError (message: string): void {
-        this.statusBarProgressBar.text = `$(error) Torizon: ${message}`;
+        this.statusBarProgressBar.text = `$(error) ${NOTIFICATION_PREFIX}: ${message}`;
         this.statusBarProgressBar.show();
     }
 
     static hideStatusBarError = ExtensionUtils.hideStatusBar;
 
     static showStatusBarWarning (message: string): void {
-        this.statusBarProgressBar.text = `$(warning) Torizon: ${message}`;
+        this.statusBarProgressBar.text = `$(warning) ${NOTIFICATION_PREFIX}: ${message}`;
         this.statusBarProgressBar.show();
     }
 
     static hideStatusBarWarning = ExtensionUtils.hideStatusBar;
 
     static showStatusBarOk (message: string): void {
-        this.statusBarProgressBar.text = `$(pass-filled) Torizon: ${message}`;
+        this.statusBarProgressBar.text = `$(pass-filled) ${NOTIFICATION_PREFIX}: ${message}`;
         this.statusBarProgressBar.show();
     }
 
@@ -271,42 +272,24 @@ export class ExtensionUtils {
         );
     }
 
-    static isExperimentalMode (): boolean {
-        if (ExtensionUtils.fromSettings<boolean>("experimental") ?? false) {
-            return true;
-        }
-
-        ExtensionUtils.showWarning(
-            "This is an experimental feature.\n\n " +
-            // eslint-disable-next-line max-len
-            "You can enable it by setting the apollox.experimental to true in settings.json.\n\n " +
-            // eslint-disable-next-line max-len
-            "Please note that this feature can be unstable and may cause unexpected behavior. ",
-            true,
-            false
-        );
-
-        return false;
-    }
-
     static async runOnTerminal (cmd: string): Promise<boolean> {
         _termID++;
         return await new Promise(resolve => {
             const term = vscode.window
                 .createTerminal({
-                    name: `ApolloX Torizon cmd ${_termID}`,
+                    name: `NuttX cmd ${_termID}`,
                     shellPath: "/bin/bash",
                     shellArgs: ["--norc", "--noprofile"],
                     env: {
                         PS1: ""
                     },
-                    message: `Running ApolloX Torizon cmd ${_termID}`
+                    message: `Running NuttX cmd ${_termID}`
                 });
             term.show();
             term.sendText(`${cmd} ; exit`, true);
 
             const termDispose = vscode.window.onDidCloseTerminal(term => {
-                if (term.name === `ApolloX Torizon cmd ${_termID}`) {
+                if (term.name === ` NuttX cmd ${_termID}`) {
                     termDispose.dispose();
                     resolve(term.exitStatus?.code === 0);
                 }
@@ -356,5 +339,11 @@ export class ExtensionUtils {
     static async removeSecret (key: string): Promise<void> {
         const context = (this.Global.CONTEXT as vscode.ExtensionContext);
         await context.secrets.delete(key);
+    }
+
+    static async delay(milliseconds: number): Promise<void> {
+        return new Promise<void>(resolve => {
+            setTimeout(resolve, milliseconds);
+        });
     }
 }
