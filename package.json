@@ -16,6 +16,13 @@
     "email": "matheus@castello.eng.br",
     "name": "Matheus Castello"
   },
+  "extensionDependencies": [
+    "microhobby.taskrunnercodeplus",
+    "microhobby.linuxkerneldev",
+    "jeff-hykin.better-cpp-syntax",
+    "jeff-hykin.better-c-syntax",
+    "webfreak.debug"
+  ],
   "engines": {
     "vscode": "^1.82.0"
   },
