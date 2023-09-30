@@ -19,9 +19,12 @@ export default class Configure {
     private async configureList(): Promise<string> {
         ExtensionUtils.showStatusBarLoading("Listing configurations...");
         await ExtensionUtils.delay(200);
-    
+        
+        let scriptPath =
+                ExtensionUtils.fromSettings<string>("configureScriptPath");
+
         let output = cp.spawnSync(
-            "./tools/configure.sh",
+            scriptPath!,
             [
                 "-L"
             ],
