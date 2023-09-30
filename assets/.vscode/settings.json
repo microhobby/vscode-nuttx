@@ -5,5 +5,7 @@
         "Kconfig",
         "Make"
     ],
-    "nuttx.checkPatch": true
+    "nuttx.checkPatch": true,
+    "nuttx.checkPatchPath": "${workspaceFolder}/nuttx/tools/checkpatch.sh",
+    "nuttx.configureScriptPath": "${workspaceFolder}/nuttx/tools/configure.sh",
 }

@@ -3,7 +3,7 @@
     "tasks": [
         {
             "label": "Configure",
-            "command": "${workspaceFolder}/tools/configure.sh",
+            "command": "${workspaceFolder}/nuttx/tools/configure.sh",
             "type": "shell",
             "args": [
                 "-l",
@@ -28,7 +28,7 @@
                 "$(nproc)"
             ],
             "options": {
-                "cwd": "${workspaceFolder}"
+                "cwd": "${workspaceFolder}/nuttx"
             },
             "problemMatcher": [],
             "icon": {
@@ -45,7 +45,7 @@
                 "distclean"
             ],
             "options": {
-                "cwd": "${workspaceFolder}"
+                "cwd": "${workspaceFolder}/nuttx"
             },
             "problemMatcher": [],
             "icon": {

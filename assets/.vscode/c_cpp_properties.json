@@ -3,11 +3,19 @@
         {
             "name": "Linux",
             "includePath": [
-                "${workspaceFolder}/include/**",
-                "${workspaceFolder}/../apps/**"
+                "${workspaceFolder}/nuttx/**",
+                "${workspaceFolder}/nuttx/include/**",
+                "${workspaceFolder}/apps/**"
             ],
+            "browse": {
+                "path": [
+                    "${workspaceFolder}/nuttx",
+                    "${workspaceFolder}/apps"
+                ]
+            },
             "cStandard": "c11",
-            "dotConfig": "${workspaceFolder}/.config"
+            "compilerPath": "/usr/bin/arm-none-eabi-gcc",
+            "dotConfig": "${workspaceFolder}/nuttx/.config"
         }
     ],
     "version": 4

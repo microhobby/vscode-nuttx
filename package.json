@@ -12,7 +12,7 @@
     "type": "git",
     "url": "https://github.com/microhobby/vscode-nuttx"
   },
-  "version": "0.0.1",
+  "version": "0.0.2",
   "author": {
     "email": "matheus@castello.eng.br",
     "name": "Matheus Castello"
