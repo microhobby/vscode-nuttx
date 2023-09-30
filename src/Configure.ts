@@ -20,8 +20,15 @@ export default class Configure {
         ExtensionUtils.showStatusBarLoading("Listing configurations...");
         await ExtensionUtils.delay(200);
         
+        // FIXME: this will not work for multi root workspaces
+        // get the workspace folder path
+        let cwd = vscode.workspace.rootPath;
         let scriptPath =
                 ExtensionUtils.fromSettings<string>("configureScriptPath");
+        scriptPath = scriptPath!.replace(
+            "${workspaceFolder}",
+            cwd!.toString()
+        );
 
         let output = cp.spawnSync(
             scriptPath!,
