@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "name": "Linux",
+            "includePath": [
+                "${workspaceFolder}/include/**",
+                "${workspaceFolder}/../apps/**"
+            ],
+            "cStandard": "c11",
+            "dotConfig": "${workspaceFolder}/.config"
+        }
+    ],
+    "version": 4
+}

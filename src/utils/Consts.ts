@@ -6,3 +6,4 @@ export const OUT_WARN = "WARNING ::";
 export const OUT_ERR = "ERROR ::";
 export const CHECKPATCH_ERROR_PREFIX = ": error: ";
 export const CMD_CONFIGURE_LIST = "nuttx.chooseFromConfigureList";
+export const CMD_CONFIGURE_WORKSPACE = "nuttx.configureWorkspace";

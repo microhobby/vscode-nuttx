@@ -1,0 +1,9 @@
+{
+    "C_Cpp.errorSquiggles": "enabled",
+    "C_Cpp.enhancedColorization": "enabled",
+    "ctags.languages": [
+        "Kconfig",
+        "Make"
+    ],
+    "nuttx.checkPatch": true
+}
